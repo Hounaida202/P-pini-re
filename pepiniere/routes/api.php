@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\PlanteController;
+use App\Http\Controllers\CommandeController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,7 @@ use Illuminate\Support\Facades\Route;
     Route::put('/modifierPlante/{id}', [PlanteController::class, 'modifierPlante']);
     Route::delete('/supprimerCategorie/{id}', [CategorieController::class, 'supprimerCategorie']);
     Route::delete('/supprimerPlante/{id}', [PlanteController::class, 'supprimerPlante']);
-
+    Route::get('/afficherPlanteDetailles/{slug}',[PlanteController::class,'afficherPlanteDetailles']);
 
 Route::middleware('auth:api')->group(function () {
 

@@ -42,9 +42,18 @@ class PlanteController extends Controller
     public function afficherPlantes($categorie_id){
         $plantes = Plante::where('categories_id', $categorie_id)->get();
         return response()->json([
-            'categorie'=>$plantes
+            'nom'=>$plantes['nom']
         ], 200);
     }
+
+    public function afficherPlanteDetailles($slug){
+        $plante = Plante::where('slug', $slug)->get();
+        return response()->json([
+            'nom'=>$plante
+        ], 200);
+    }
+
+
     public function modifierPlante(Request $request, $id)
     {
         $plante = Plante::find($id);

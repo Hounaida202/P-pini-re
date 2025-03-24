@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
+            $table->string('quantity');
+            $table->foreignId('palntes_id')->constrained('plantes')->onDelete('cascade');
+            $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
             $table->enum('status', ['en attente', 'en préparation', 'livrée'])->default('en attente');
             $table->timestamps();
         });
