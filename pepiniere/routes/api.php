@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\PlanteController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/store', [CategorieController::class, 'store']);
+    Route::post('/plantes', [PlanteController::class, 'storePlante']);
+
 
 Route::middleware('auth:api')->group(function () {
 
