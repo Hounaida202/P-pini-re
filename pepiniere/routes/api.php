@@ -37,6 +37,11 @@ use Illuminate\Support\Facades\Route;
     Route::post('/plantes', [PlanteController::class, 'storePlante']);
     Route::get('/categories',[CategorieController::class,'afficherCategorie']);
     Route::get('/getplantes/{categorie_id}', [PlanteController::class, 'afficherPlantes']);
+    Route::put('/modifierCategorie/{id}', [CategorieController::class, 'modifierCategorie']);
+    Route::put('/modifierPlante/{id}', [PlanteController::class, 'modifierPlante']);
+    Route::delete('/supprimerCategorie/{id}', [CategorieController::class, 'supprimerCategorie']);
+    Route::delete('/supprimerPlante/{id}', [PlanteController::class, 'supprimerPlante']);
+
 
 Route::middleware('auth:api')->group(function () {
 

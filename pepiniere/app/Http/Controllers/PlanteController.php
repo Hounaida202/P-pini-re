@@ -45,5 +45,28 @@ class PlanteController extends Controller
             'categorie'=>$plantes
         ], 200);
     }
+    public function modifierPlante(Request $request, $id)
+    {
+        $plante = Plante::find($id);
+        $plante->update([
+            'nom' => $request->nom ?? $plante->nom,
+            'description' => $request->description ?? $plante->description,
+            'image' => $request->image ?? $plante->image,
+            'prix' => $request->prix ?? $plante->prix,
+
+        ]);
+        return response()->json([
+            'message' => 'plante mise à jour avec succès',
+            'reservation' => $plante
+        ], 200);
+    }
+    public function supprimerPlante($id)
+        {
+            $plante = Plante::find($id);
+            $plante->delete();
+            return response()->json([
+                'message' => 'plante supprimée avec succès'
+            ], 200);
+        }
 
 }

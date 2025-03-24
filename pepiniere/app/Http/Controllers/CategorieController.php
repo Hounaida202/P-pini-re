@@ -36,4 +36,26 @@ class CategorieController extends Controller
             
         ], 200);
     }
+
+
+    public function modifierCategorie(Request $request, $id)
+    {
+        $categorie = Categorie::find($id);
+        $categorie->update([
+            'nom' => $request->nom ?? $categorie->date,
+        ]);
+        return response()->json([
+            'message' => 'categorie mise à jour avec succès',
+            'reservation' => $categorie
+        ], 200);
+    }
+
+    public function supprimerCategorie($id)
+        {
+            $categorie = Categorie::find($id);
+            $categorie->delete();
+            return response()->json([
+                'message' => 'categorie supprimée avec succès'
+            ], 200);
+        }
 }
