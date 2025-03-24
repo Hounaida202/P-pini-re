@@ -35,7 +35,8 @@ use Illuminate\Support\Facades\Route;
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/store', [CategorieController::class, 'store']);
     Route::post('/plantes', [PlanteController::class, 'storePlante']);
-
+    Route::get('/categories',[CategorieController::class,'afficherCategorie']);
+    Route::get('/getplantes/{categorie_id}', [PlanteController::class, 'afficherPlantes']);
 
 Route::middleware('auth:api')->group(function () {
 

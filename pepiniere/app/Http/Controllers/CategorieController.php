@@ -28,4 +28,12 @@ class CategorieController extends Controller
             
         ], 201);
     }
+
+    public function afficherCategorie(){
+        $categories = Categorie::all(); 
+        return response()->json([
+            'categorie'=>$categories
+            
+        ], 200);
+    }
 }

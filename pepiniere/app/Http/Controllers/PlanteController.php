@@ -29,7 +29,7 @@ class PlanteController extends Controller
             'description'=>$validé['description'],
             'image'=>$validé['image'],
             'prix'=>$validé['prix'],
-            'categories_id' => $validé['categories_id'], // Ajouter l'ID de la catégorie
+            'categories_id' => $validé['categories_id'], 
 
           ]);
         //   $categorie_id->plantes()->save($plante);
@@ -39,4 +39,11 @@ class PlanteController extends Controller
               
           ], 201);
     }
+    public function afficherPlantes($categorie_id){
+        $plantes = Plante::where('categories_id', $categorie_id)->get();
+        return response()->json([
+            'categorie'=>$plantes
+        ], 200);
+    }
+
 }
