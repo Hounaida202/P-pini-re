@@ -45,7 +45,7 @@ class CategorieController extends Controller
             'nom' => $request->nom ?? $categorie->date,
         ]);
         return response()->json([
-            'message' => 'categorie mise à jour avec succès',
+            'message' => 'categorie mise a jour avec succes',
             'reservation' => $categorie
         ], 200);
     }
@@ -55,7 +55,7 @@ class CategorieController extends Controller
             $categorie = Categorie::find($id);
             $categorie->delete();
             return response()->json([
-                'message' => 'categorie supprimée avec succès'
+                'message' => 'categorie supprime avec succes'
             ], 200);
         }
 }

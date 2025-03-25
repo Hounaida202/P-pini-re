@@ -11,7 +11,7 @@ class Commande extends Model
 
    protected $fillable=[
 'quantity',
-'plantes_id',
+'palntes_id',
 'user_id',
     ];
 

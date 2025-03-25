@@ -35,14 +35,14 @@ class PlanteController extends Controller
         //   $categorie_id->plantes()->save($plante);
           return response()->json([
               'status' => true,
-              'message' => 'Plante Created Successfully',
+              'message' => 'Plante cree avec succes',
               
           ], 201);
     }
     public function afficherPlantes($categorie_id){
         $plantes = Plante::where('categories_id', $categorie_id)->get();
         return response()->json([
-            'nom'=>$plantes['nom']
+            'plante'=>$plantes
         ], 200);
     }
 
@@ -65,7 +65,7 @@ class PlanteController extends Controller
 
         ]);
         return response()->json([
-            'message' => 'plante mise à jour avec succès',
+            'message' => 'plante modifié',
             'reservation' => $plante
         ], 200);
     }
@@ -74,7 +74,7 @@ class PlanteController extends Controller
             $plante = Plante::find($id);
             $plante->delete();
             return response()->json([
-                'message' => 'plante supprimée avec succès'
+                'message' => 'plante supprime avec succes'
             ], 200);
         }
 

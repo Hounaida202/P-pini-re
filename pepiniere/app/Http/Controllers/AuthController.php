@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Validator;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -16,42 +13,24 @@ class AuthController extends Controller
 
 {
 
-    public function __construct(){
-        $this->middleware('auth:api',['except'=>['login','register']]);
-    }
-    
+  
 
     public function register(Request $request)
     {
-        // $Validator=Validator::make($request->all(), [
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|email|unique:users,email',
-        //     'password' => 'required|min:6|confirmed'
-        // ]);  
-
-        
-        // $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        // ]);
-
-        // return response()->json([
-        //     'status' => true,
-        //     'message' => 'Utilisateur créé avec succès',
-        // ], 201);
-
 
     $request->validate([
-        'name' => 'required|string|max:255',
+        'nom' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
         'password' => 'required|string|min:6',
+        'role' => 'required',
     ]);
     
     $user = User::create([
-                'name' => $request['name'],
+                'nom' => $request['nom'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
+                'role' => $request['role'],
+
             ]);
 
             $token = JWTAuth::fromUser($user);
