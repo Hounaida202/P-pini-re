@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
     Route::middleware(['check.role:admin'])->delete('/supprimerCategorie/{id}', [CategorieController::class, 'supprimerCategorie']);
     Route::middleware(['check.role:admin'])->delete('/supprimerPlante/{id}', [PlanteController::class, 'supprimerPlante']);
     Route::get('/afficherPlanteDetailles/{slug}',[PlanteController::class,'afficherPlanteDetailles']);
-    Route::post('/AjouterCommande/{slug}',[CommandeController::class,'AjouterCommande']);
+    Route::middleware(['check.auth'])->post('/AjouterCommande/{slug}',[CommandeController::class,'AjouterCommande']);
 
 
     Route::post('/logout', [AuthController::class, 'logout']);

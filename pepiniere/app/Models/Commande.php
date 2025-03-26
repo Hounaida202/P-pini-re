@@ -12,7 +12,7 @@ class Commande extends Model
    protected $fillable=[
 'quantity',
 'palntes_id',
-'user_id',
+'users_id',
     ];
 
 

@@ -18,18 +18,22 @@ class CommandeController extends Controller
         $this->commandeRepository = $commandeRepository;
     }
 
-    public function AjouterCommande(Request $request, $slug)
+    public function AjouterCommande(Request $request, $slug )
     {
         $users_id = Auth::id();
         $plante = Plante::where('slug', $slug)->firstOrFail();
 
+        if (!$plante) {
+            return response()->json(['message' => 'Plante non trouvée'], 404);
+        }
+
         $data = [
             'quantity' => $request->quantity,
-            'plantes_id' => $plante->id,
+            'palntes_id' => $plante->id,
             'users_id' => $users_id
         ];
 
-        $commande = $this->commandeRepository->createCommande($data);
+        $commande = $this->commandeRepository->createCommande($data,$slug);
 
         return response()->json([
             'message' => 'Commande ajoutée avec succès',
