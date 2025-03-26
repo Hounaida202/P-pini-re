@@ -91,7 +91,13 @@ public function ChangerStatus(Request $request ,$commande_id){
     ]);
     
     $commande=Commande::where('id',$commande_id)->first();
-    
+    if (!$commande) {
+        return response()->json([
+            'message' => 'Commande non trouvée'
+        ], 404);
+    }
+
+   
    
 }
 
