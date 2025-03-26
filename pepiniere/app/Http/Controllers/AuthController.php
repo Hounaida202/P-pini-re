@@ -12,9 +12,6 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 
 {
-
-  
-
     public function register(Request $request)
     {
 
@@ -56,8 +53,6 @@ class AuthController extends Controller
     
     ],200);
     }
-
-    
 
     public function logout()
     {
