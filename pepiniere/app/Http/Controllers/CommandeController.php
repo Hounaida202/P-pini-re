@@ -7,6 +7,7 @@ use App\Models\Plante;
 use App\Models\Commande;
 
 use App\DAO\CommandeRepository;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -80,6 +81,13 @@ class CommandeController extends Controller
     return response()->json([
         'message' => 'la commande est annulée'
     ], 200);
+}
+
+// ------------changer le status de la commande-------
+
+public function ChangerStatus(Request $request ,$commande_id){
+
+   
 }
 
 
