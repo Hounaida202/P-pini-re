@@ -14,7 +14,12 @@ class CommandeRepository implements CommandeInterface
     {
         return Commande::where('id',$commande_id)->where('users_id',$id)->first();
     }
-    public function ChangerStatus($commande,$commande_id,$id){
-        return $commande->delete();
+    public function annulerCommande($commande_id)
+    {
+        $commande = Commande::find($commande_id);
+        if ($commande) {
+            $commande->delete();
+        }
+        return $commande;
     }
 }

@@ -62,29 +62,25 @@ class CommandeController extends Controller
     }
 
      // -------annuler une commande de status en attente-----------
-     public function annuler($commande_id){
-        $id=Auth::id();
-        $commande=Commande::where('id',$commande_id)->where('users_id',$id)->first();
-
-        if(!$commande){
-            return response()->json([
-            'message'=>'element non trouvé'
-            ],404);
-          }
-          else{
-
-              if($commande->status!=='en attente'){
-              return response()->json([
-              'message'=> 'la commande est deja preparé pour la livraison '
-              ]);
-                }
-                $commande=$this->commandeRepository->ChangerStatus($commande,$commande_id,$id);
-
-                  return response()->json([
-                      'message'=>'la commande est annulé',
-                      
-                  ],200);
-               }
+     public function annuler($commande_id)
+{
+    $id = Auth::id();
+    $commande = $this->commandeRepository->verifier($commande_id, $id);
+    if (!$commande) {
+        return response()->json([
+            'message' => 'element non trouvé'
+        ], 404);
     }
+    if ($commande->status !== 'en attente') {
+        return response()->json([
+            'message' => 'la commande est deja preparée pour la livraison'
+        ]);
+    }
+    $this->commandeRepository->annulerCommande($commande_id);
+    return response()->json([
+        'message' => 'la commande est annulée'
+    ], 200);
+}
+
 
 }
