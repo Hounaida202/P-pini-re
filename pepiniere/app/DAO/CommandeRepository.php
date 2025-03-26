@@ -24,7 +24,7 @@ class CommandeRepository implements CommandeInterface
     }
     public function changerstatus($commande_id)
     {
-        
+        return Commande::where('id',$commande_id)->first();
     }
     
 }
