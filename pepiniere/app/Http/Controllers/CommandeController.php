@@ -90,6 +90,8 @@ public function ChangerStatus(Request $request ,$commande_id){
         'status' => 'required|string'
     ]);
     
+    $commande=Commande::where('id',$commande_id)->first();
+    
    
 }
 
