@@ -22,4 +22,9 @@ class CommandeRepository implements CommandeInterface
         }
         return $commande;
     }
+    public function changerstatus($commande_id)
+    {
+        
+    }
+    
 }
