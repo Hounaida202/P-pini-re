@@ -1,8 +1,8 @@
 <?php
-namespace app\DAO;
+namespace App\DAO;
+
 
 interface CommandeInterface
 {
-    public function createCommande(array $data, $plante_id , $id);
-
+    public function createCommande(array $data);
 }
