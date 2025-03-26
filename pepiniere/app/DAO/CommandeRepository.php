@@ -22,9 +22,13 @@ class CommandeRepository implements CommandeInterface
         }
         return $commande;
     }
-    public function changerstatus($commande_id)
+    public function changerstatus($data,$commande_id)
     {
-        return Commande::where('id',$commande_id)->first();
+        $commande=Commande::where('id',$commande_id)->first();
+        if ($commande) {
+            $commande=Commande::update($data);
+        }
+        return $commande;
     }
     
 }
