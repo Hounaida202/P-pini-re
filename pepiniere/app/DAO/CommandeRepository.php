@@ -10,8 +10,11 @@ class CommandeRepository implements CommandeInterface
     {
         return Commande::create($data,$slug);
     }
-    public function verifier(array $data ,$id)
+    public function verifier($commande_id,$id)
     {
-        return Commande::find($id);
+        return Commande::where('id',$commande_id)->where('users_id',$id)->first();
+    }
+    public function ChangerStatus($commande,$commande_id,$id){
+        return $commande->delete();
     }
 }

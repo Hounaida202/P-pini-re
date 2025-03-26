@@ -52,3 +52,46 @@ use Illuminate\Support\Facades\Route;
     Route::get('/me', [AuthController::class, 'me']);
     
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::middleware(['check.auth'])->get('/verifierr/{id}',[CommandeController::class,'verifierr']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::middleware(['check.auth'])->delete('/annuler/{id}',[CommandeController::class,'annuler']);

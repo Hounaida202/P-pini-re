@@ -23,7 +23,7 @@ class CheckAuth
                 throw new UnauthorizedHttpException('JWT', 'User not authenticated');
             }
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Unauthenticated'], 401);
+            return response()->json(['error' => 'n est pas connecté'], 401);
         }
 
         return $next($request);
