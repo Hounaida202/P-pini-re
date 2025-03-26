@@ -96,6 +96,9 @@ public function ChangerStatus(Request $request ,$commande_id){
             'message' => 'Commande non trouvée'
         ], 404);
     }
+    $commande=Commande::updated([
+        'status'=>'status'
+    ]);
 
    
    
