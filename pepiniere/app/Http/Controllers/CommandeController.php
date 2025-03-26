@@ -100,6 +100,10 @@ public function ChangerStatus(Request $request ,$commande_id){
         'status'=>'status'
     ]);
 
+    return response()->json([
+        'message' => 'bien changé',
+        'commande' => $commande
+    ], 200);
    
    
 }
