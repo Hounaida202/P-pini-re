@@ -95,7 +95,10 @@ public function ChangerStatus(Request $request, $commande_id)
             'message' => 'Commande non trouvée'
         ], 404);
     }
-    
+    return response()->json([
+        'message' => 'Statut de la commande changé avec succès',
+        'commande' => $commande
+    ], 200);
 
 }
 }
