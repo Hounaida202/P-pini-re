@@ -89,7 +89,8 @@ public function ChangerStatus(Request $request, $commande_id)
     $request->validate([
         'status' => 'required|string'
     ]);
-   
+    $commande = $this->commandeRepository->changerStatus($commande_id, ['status' => $request->status]);
     
+
 }
 }
