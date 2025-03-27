@@ -90,6 +90,11 @@ public function ChangerStatus(Request $request, $commande_id)
         'status' => 'required|string'
     ]);
     $commande = $this->commandeRepository->changerStatus($commande_id, ['status' => $request->status]);
+    if (!$commande) {
+        return response()->json([
+            'message' => 'Commande non trouvée'
+        ], 404);
+    }
     
 
 }
