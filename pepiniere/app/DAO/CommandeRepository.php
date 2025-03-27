@@ -28,7 +28,8 @@ class CommandeRepository implements CommandeInterface
         if (!$commande) {
             return null;
             }
-        
+            $commande->update($data);
+            return $commande;
     }
     
 }
