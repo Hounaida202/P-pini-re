@@ -103,5 +103,8 @@ public function ChangerStatus(Request $request, $commande_id)
 }
 // ------------count les commandes-------
        
-
+public function countVentes(){
+ 
+    
+    }
 }
