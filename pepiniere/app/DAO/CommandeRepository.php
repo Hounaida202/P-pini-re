@@ -32,6 +32,10 @@ class CommandeRepository implements CommandeInterface
             $commande->update($data);
             return $commande;
     }
-    
+    public function countVentes()
+    {
+       
+        
+    }
     
 }
