@@ -112,6 +112,6 @@ public function countVentes(){
 
     }
     public function countplantes(){
-        
+        $plantes=$this->PlanteRepository->countplantes();
     }
 }
