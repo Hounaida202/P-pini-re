@@ -67,4 +67,5 @@ class PlanteController extends Controller
 
         return response()->json(['message' => 'Plante supprimée avec succès'], 200);
     }
+
 }

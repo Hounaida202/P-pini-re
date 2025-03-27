@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\DAO\CommandeInterface;
 use App\Models\Plante;
 use App\Models\Commande;
-
+use App\DAO\PlanteInterface;
+use App\DAO\PlanteRepository;
 use App\DAO\CommandeRepository;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
@@ -111,7 +112,11 @@ public function countVentes(){
         ]);
 
     }
+    
+    // ------------count les plantes-------
+
     public function countplantes(){
-        $plantes=$this->PlanteRepository->countplantes();
+        $plantes=$this->commandeRepository->countplantes();
     }
+
 }

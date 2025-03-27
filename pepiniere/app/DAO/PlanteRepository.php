@@ -2,6 +2,7 @@
 namespace App\DAO;
 use App\Models\Plante;
 use App\DAO\PlanteInterface;
+use Illuminate\Support\Facades\DB;
 
 class PlanteRepository implements PlanteInterface
 {
@@ -37,4 +38,6 @@ class PlanteRepository implements PlanteInterface
         $plante = Plante::findOrFail($id);
         return $plante->delete();
     }
+   
+    
 }
