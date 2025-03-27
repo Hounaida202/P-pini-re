@@ -85,28 +85,4 @@ class CommandeController extends Controller
 
 // ------------changer le status de la commande-------
 
-public function ChangerStatus(Request $request ,$commande_id){
-    $request->validate([
-        'status' => 'required|string'
-    ]);
-    
-    $commande=$this->commandeRepository->verif;
-    if (!$commande) {
-        return response()->json([
-            'message' => 'Commande non trouvée'
-        ], 404);
-    }
-    $commande=Commande::updated([
-        'status'=>'status'
-    ]);
-
-    return response()->json([
-        'message' => 'bien changé',
-        'commande' => $commande
-    ], 200);
-   
-   
-}
-
-
 }

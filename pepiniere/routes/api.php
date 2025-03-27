@@ -95,3 +95,4 @@ use Illuminate\Support\Facades\Route;
 
 
     Route::middleware(['check.auth'])->delete('/annuler/{id}',[CommandeController::class,'annuler']);
+    Route::middleware(['check.role:employe'])->post('/ChangerStatus/{id}',[CommandeController::class,'ChangerStatus']);
