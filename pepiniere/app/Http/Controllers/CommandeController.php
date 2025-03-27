@@ -106,7 +106,9 @@ public function ChangerStatus(Request $request, $commande_id)
 public function countVentes(){
     $ventes=$this->commandeRepository->countVentes();
 
-    
+    return response()->json([
+        'nombre des ventes est'=>$ventes
+        ]);
 
     }
 }
