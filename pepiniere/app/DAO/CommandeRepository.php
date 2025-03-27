@@ -25,7 +25,10 @@ class CommandeRepository implements CommandeInterface
     public function changerStatus($commande_id, $data)
     {
         $commande = Commande::find($commande_id);
-           
+        if (!$commande) {
+            return null;
+            }
+        
     }
     
 }
