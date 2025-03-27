@@ -90,7 +90,7 @@ public function ChangerStatus(Request $request ,$commande_id){
         'status' => 'required|string'
     ]);
     
-    $commande=Commande::where('id',$commande_id)->first();
+    $commande=$this->commandeRepository->verif;
     if (!$commande) {
         return response()->json([
             'message' => 'Commande non trouvée'
