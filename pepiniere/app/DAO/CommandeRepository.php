@@ -36,6 +36,9 @@ class CommandeRepository implements CommandeInterface
     {
         $ventes=DB::table('commandes')->count();
         return $ventes;
+    }
+    public function countplantes()
+    {
         
     }
     
