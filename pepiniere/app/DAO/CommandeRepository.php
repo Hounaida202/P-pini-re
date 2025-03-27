@@ -3,6 +3,7 @@
 namespace App\DAO;
 
 use App\Models\Commande;
+use Illuminate\Support\Facades\DB;
 
 class CommandeRepository implements CommandeInterface
 {
@@ -31,5 +32,6 @@ class CommandeRepository implements CommandeInterface
             $commande->update($data);
             return $commande;
     }
+    
     
 }

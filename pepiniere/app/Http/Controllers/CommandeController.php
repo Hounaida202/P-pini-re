@@ -101,4 +101,7 @@ public function ChangerStatus(Request $request, $commande_id)
     ], 200);
 
 }
+// ------------count les commandes-------
+       
+
 }

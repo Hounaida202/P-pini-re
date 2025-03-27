@@ -8,6 +8,7 @@ interface CommandeInterface
     public function verifier($commande_id ,$id);
     public function annulerCommande($commande_id);
     public function changerstatus($data,$commande_id);
+    public function countVentes();
 
 
 }
