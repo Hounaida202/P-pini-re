@@ -84,5 +84,8 @@ class CommandeController extends Controller
 }
 
 // ------------changer le status de la commande-------
-
+public function ChangerStatus(Request $request, $commande_id)
+{
+   
+}
 }
