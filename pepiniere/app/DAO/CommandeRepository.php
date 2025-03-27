@@ -40,6 +40,7 @@ class CommandeRepository implements CommandeInterface
     public function countplantes()
     {
         $plantes=DB::table('plantes')->count();
+        return $plantes;
     }
     
 }
