@@ -23,5 +23,14 @@ class AuthControllerTest extends TestCase
             'password' => 'password123',
             'role' => 'admin',
         ]);
+     
+        $response->assertStatus(201) 
+                 ->assertJsonStructure(['status', 'message', 'token']); 
+    
+        $this->assertDatabaseHas('users', ['email' => 'hounaida@gmail.com']); 
+
     }
+
+   
+
 }
