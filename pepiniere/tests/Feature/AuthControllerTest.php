@@ -29,17 +29,29 @@ class AuthControllerTest extends TestCase
     
         $this->assertDatabaseHas('users', ['email' => 'hounaida@gmail.com']); 
     }
-        public function test_registration_fails_if_email_is_missing()
+      
+        
+        public function test_registration_fails_if_email_is_not_unique()
         {
+            User::create([
+                'nom' => 'Jane Doe',
+                'email' => 'hounaida@gmail.com',
+                'password' => bcrypt('password123'),
+                'role' => 'admin',  
+            ]);
+            
             $response = $this->postJson('/api/register', [
                 'nom' => 'John Doe',
+                'email' => 'hounaida@gmail.com',
                 'password' => 'password123',
-                'role' => 'admin',
+                'role' => 'admin', 
             ]);
-    
-            $response->assertStatus(422)
-            ->assertJsonValidationErrors(['email']);
+            
+            $response->assertStatus(422) 
+                    ->assertJsonValidationErrors(['email']); 
         }
+
+
 
 
 }
