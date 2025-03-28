@@ -38,7 +38,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('/plantes', [PlanteController::class, 'storePlante']);
      // jai utilsé ici un middelware pour verifier si il est authentifié //
     Route::middleware(['check.auth'])->get('/categories', [CategorieController::class, 'afficherCategorie']);
-
     Route::get('/getplantes/{categorie_id}', [PlanteController::class, 'afficherPlantes']);
     Route::middleware(['check.role:admin'])->put('/modifierCategorie/{id}', [CategorieController::class, 'modifierCategorie']);
     Route::middleware(['check.role:admin'])->put('/modifierPlante/{id}', [PlanteController::class, 'modifierPlante']);
@@ -46,53 +45,8 @@ use Illuminate\Support\Facades\Route;
     Route::middleware(['check.role:admin'])->delete('/supprimerPlante/{id}', [PlanteController::class, 'supprimerPlante']);
     Route::get('/afficherPlanteDetailles/{slug}',[PlanteController::class,'afficherPlanteDetailles']);
     Route::middleware(['check.auth'])->post('/AjouterCommande/{slug}',[CommandeController::class,'AjouterCommande']);
-
-
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/me', [AuthController::class, 'me']);
-    
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Route::middleware(['check.auth'])->get('/verifierr/{id}',[CommandeController::class,'verifierr']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Route::middleware(['check.auth'])->delete('/annuler/{id}',[CommandeController::class,'annuler']);
     Route::middleware(['check.role:employe'])->post('/ChangerStatus/{id}',[CommandeController::class,'ChangerStatus']);
