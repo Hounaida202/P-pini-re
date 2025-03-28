@@ -37,6 +37,9 @@ class AuthControllerTest extends TestCase
                 'role' => 'admin',
             ]);
     
+            $response->assertStatus(422)
+            ->assertJsonValidationErrors(['email']);
         }
+
 
 }
