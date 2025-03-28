@@ -15,6 +15,8 @@ class AuthControllerTest extends TestCase
      *
      * @return void
      */
-    
+    public function test_utilisateur_enregistré()
+    {
+    }
 
 }
