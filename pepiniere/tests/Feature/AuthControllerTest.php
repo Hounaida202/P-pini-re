@@ -28,8 +28,10 @@ class AuthControllerTest extends TestCase
                  ->assertJsonStructure(['status', 'message', 'token']); 
     
         $this->assertDatabaseHas('users', ['email' => 'hounaida@gmail.com']); 
-
     }
+        public function test_registration_fails_if_email_is_missing()
+        {
+        }
 
    
 
