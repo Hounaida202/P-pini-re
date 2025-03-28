@@ -31,8 +31,12 @@ class AuthControllerTest extends TestCase
     }
         public function test_registration_fails_if_email_is_missing()
         {
+            $response = $this->postJson('/api/register', [
+                'nom' => 'John Doe',
+                'password' => 'password123',
+                'role' => 'admin',
+            ]);
+    
         }
-
-   
 
 }
