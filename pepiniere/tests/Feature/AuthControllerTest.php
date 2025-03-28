@@ -17,6 +17,11 @@ class AuthControllerTest extends TestCase
      */
     public function test_utilisateur_enregistré()
     {
+        $response = $this->postJson('/api/register', [
+            'nom' => 'John Doe',
+            'email' => 'hounaida@gmail.com',
+            'password' => 'password123',
+            'role' => 'admin',
+        ]);
     }
-
 }
