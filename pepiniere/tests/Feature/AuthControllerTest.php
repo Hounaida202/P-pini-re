@@ -31,7 +31,7 @@ class AuthControllerTest extends TestCase
     }
       
         
-        public function test_registration_fails_if_email_is_not_unique()
+        public function test_registration_si_email_pas_unique()
         {
             User::create([
                 'nom' => 'Jane Doe',
@@ -49,6 +49,34 @@ class AuthControllerTest extends TestCase
             
             $response->assertStatus(422) 
                     ->assertJsonValidationErrors(['email']); 
+        }
+        public function test_utilisateur_connecté()
+        {
+            $user = User::create([
+                'email' => 'hounaida@gmail.com',
+                'password' => bcrypt('password123'), 
+            ]);
+
+            $response = $this->postJson('/api/login', [
+                'email' => 'hounaida@gmail.com',
+                'password' => 'password123',
+            ]);
+
+            $response->assertStatus(200)
+                    ->assertJsonStructure(['status', 'message', 'token']); 
+
+            $token = $response->json('token');
+
+            $response = $this->getJson('/api/user', [
+                'Authorization' => 'Bearer ' . $token, 
+            ]);
+
+            $response->assertStatus(200)
+                    ->assertJson([
+                        'email' => 'hounaida@gmail.com', 
+                    ]);
+
+            $this->assertDatabaseHas('users', ['email' => 'hounaida@gmail.com']);
         }
 
 
